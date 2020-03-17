@@ -1,0 +1,505 @@
+\documentclass[11pt,final]{article}
+\usepackage{xeCJK}
+\usepackage[american]{babel}
+\usepackage{microtype}
+\usepackage{verbatim}
+\usepackage{a4}
+\usepackage{amsmath}%
+\usepackage{amstext}%
+\usepackage{amssymb}%
+\usepackage{showkeys}%
+\usepackage{epsfig}%
+\usepackage{cite}
+\usepackage{tikz}
+\usepackage{caption}
+%\usepackage{float}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{floatrow}
+\usepackage{comment}
+\usepackage{listings}
+%%%%%%%add%%%%%%%%%%%
+\usepackage{subfigure}
+\usepackage{adjustbox}%
+\usepackage{rotating}
+\usepackage{bigstrut}
+\usepackage{makecell}
+\usepackage{enumerate}
+\usepackage[bookmarksnumbered, plainpages, colorlinks]{hyperref}
+\numberwithin{equation}{section}
+%%%%%%%add%%%%%%%%%%%
+%\usepackage[margin=0.5in]{geometry}
+
+\setcounter{MaxMatrixCols}{10}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{pb}[theorem]{Problem}
+\newenvironment{problem}{\pb\rm}{\endpb}
+
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{rem}[theorem]{Remark}
+\newenvironment{remark}{\rem\rm}{\endrem}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcounter{unnumber}
+\renewcommand{\theunnumber}{}
+\newtheorem{prf}[unnumber]{Proof.}
+\newenvironment{proof}{\prf\rm}{\hfill{$\blacksquare$}\endprf}
+%
+\newcommand{\R}{\mathbb{R}}%
+\newcommand{\N}{\mathbb{N}}%
+\newcommand{\e}{\varepsilon}%
+\newcommand{\ol}{\overline}%
+\newcommand{\ul}{\underline}%
+
+\newcommand{\n}{{\nabla}}
+\newcommand{\p}{{\partial}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\To}{\longrightarrow}
+%\def\1{\^{\i}}
+%\def\2{\u{a}}
+%\def\3{\c{s}}
+%\def\4{\^{a}}
+%\def\5{\c{t}}
+\def\a{\alpha}
+\def\oa{\overline{\alpha}}
+\def\ua{\underline{\alpha}}
+\def\b{\beta}
+\def\e{\epsilon}
+\def\d{\delta}
+\def\t{\theta}
+\def\g{\gamma}
+\def\m{\mu}
+\def\s{\sigma}
+\def\l{\lambda}
+\def\<{\langle}
+\def\>{\rangle}
+\DeclareMathOperator*\inte{int}%
+\DeclareMathOperator*\sqri{sqri}%
+\DeclareMathOperator*\ri{ri}%
+\DeclareMathOperator*\epi{epi}%
+\DeclareMathOperator*\dom{dom}%
+\DeclareMathOperator*\B{\overline{\R}}%
+\DeclareMathOperator*\gr{Gr}%
+\DeclareMathOperator*\ran{ran}%
+\DeclareMathOperator*\id{Id}%
+\DeclareMathOperator*\prox{prox}%
+\DeclareMathOperator*\argmin{argmin}
+\DeclareMathOperator*\sn{sgn}
+\DeclareMathOperator*\zer{zer}
+\DeclareMathOperator*\crit{crit}
+\DeclareMathOperator*\dist{dist}
+\DeclareMathOperator*\sgn{sgn}
+\DeclareMathOperator*\proj{proj}
+%\renewcommand{\baselinestretch}{1.3}
+\textwidth17.5cm \textheight23.5cm
+\oddsidemargin-0.4cm
+\topmargin-1cm
+%\textwidth15.1cm \textheight22.5cm
+
+\title{数学论文写作笔记\footnote{整理自\cite{tang2013}和日常收集}}
+
+\author{Bing Tan \thanks {Institute of Fundamental and Frontier Sciences, University of Electronic Science and Technology of China, Chengdu, China,
+email: bingtan72@gmail.com.}}
+
+\begin{document}
+	\maketitle
+
+\textbf{避免抄袭，避免抄袭，避免抄袭，重要的事情说三遍。}什么是抄袭？最基本的现象就是偷偷照搬别人的句子或段落而不给出明确出处；抄袭自己已经发表的文章 (原封不动抄几行以上)也算抄袭；长篇累牍地抄袭网上公共资源或现成书籍中的定义叙述、定理证明或其他对己有用的材料，但为了遮人耳目仅仅换了非关键的几个形容词副词或个别专业术语符号，本质内容换汤不换药。这也是一种变相的抄袭行为；别人的图，即使是说明性的，在没有得到允许的情况下，也绝不可以随意出现在自己的文章中，否则会是严重剽窃。
+
+	
+\textbf{题目：}应具体、明确，最好能反映文章的主要贡献。一般不提倡以In this paper作为一个摘要的起始句。 研究(investigate)
+
+\textbf{署名：}写平生第一篇文章时，一定要决定好你的名字和其缩写的英文形式，确定好以后就基本不再改变，既保持一致，又便于查询。比如你的名字叫许珊珊，可用：Shanshan Xu或Shan-shan Xu，其缩写形式最好用S.-S. Xu。需要强调的是，万万不可未经同意就把别人的大名加到你的文章的署名拿出去投稿，尤其当此人对该文没有实质性的贡献时。要知道，文章作者一旦署名，署上去的也有责任二字。
+
+\textbf{摘要：}概括文章的主要目的、思想和结果。
+
+\textbf{关键词：}一般要在5个以下，选用关键词不能马虎、草率。关键词的遗漏可能导致检索困难或引用不足，减少别人对这篇文章的关注程度，因而也可能会降低作者的工作影响力。
+
+\textbf{数学学科分类号：}\url{https://mathscinet.ams.org/msnhtml/msc2020.pdf}。
+\section{引言}
+引言的开头要\textbf{开门见山、直奔主题}，引言的中间应该概括文章的主要贡献、可能达到的有意义的结果，以及得到这些结果的方法和技巧。这个部分应当实事求是，避免过于花哨。引言的结尾应该概括本文的组成部分 (避免与小节标题重复)。
+
+\subsection{一些句型}
+下面的词组和句型可能出现在引言的开头几段
+\begin{itemize}
+	\item ... methods have attracted considerable attention in the ... community, especially for the ...
+	
+	......方法在......的研究群体中已引起极大的注意，特别对......而言。
+	\item In recent years, there has been tremendous interest in developing ...
+	
+	近年来在发展......方面已展现了极大的兴趣。
+	\item In the past two decades, a great deal of mathematical effort in ... has been devoted to the study of ...
+	
+	在过年的二十年，大量的数学工作已用来研究......
+	\item There has been extensive study and application of ...
+	
+	对于......已有大量研究和应用。
+	
+	\item We refer to [1,2] for details on these results.
+	
+	更详细的结果我们推荐引文[1,2]
+\end{itemize}
+
+\noindent 指出写作的动机(motivation)和目的(purpose)。
+\begin{itemize}
+	\item The main purpose of this paper is to ...
+	\item We are concerned in this paper with the ...
+\end{itemize}
+
+\noindent 文章的概要
+\begin{itemize}
+	\item An outline of this paper ia as follows.
+	\item This paper is organized as follows.
+	\item The present paper is built up as follows.
+	\item The structure of the paper is the following. 
+\end{itemize}
+
+\noindent 强调
+\begin{itemize}
+	\item It should be pointed out that ...
+	\item We emphasize that ...
+	\item A point that should be stressed is that ...
+\end{itemize}	
+
+\subsection{一些注意事项}
+\begin{enumerate}[(i)]
+	\item 定理的叙述中要包含完整的条件和结论。
+	\item 避免使用太多的引理，一般文章中三个引理已经足够了。有些假设、内容相差不远的引理可以``拼凑”在一起，将不同结果用数码(i)、(ii)或1、2等标出，减少不同引理中重复部分的书写。证明定理时需要用到哪个部分就引用哪个部分。
+\end{enumerate}
+
+\section{证明}
+\textbf{注意：}很多初学者常用 because of 和 since，但当一页纸里有过多的 because，便会使文章读起来非常生硬，所以我们要学会合理地应用 as，due to，it follows that 等连接词或短语。同样的情况也出现在 therefore 和 hence 的运用中。我们也可使用不同的说法，如 consequently 和 it follows from ... that ...，以免重复。
+
+
+依范数收敛(convergence in norm)，如上所述(as mentioned above)，推导(derive)，得到(obtain, have, get, give, yield, lead to)，发现(find, see, observe)
+
+\subsection{证明步骤}
+\begin{enumerate}
+	\item We divide our proof in four steps.
+	
+	我们将证明分为四步完成。
+	
+	\item To begin with, our first goal is to show that ... (step 1)
+	
+	We first show that ...  (step 1)
+	 
+	首先，我们第一个目的是证明 ......
+	\item The next thing to do in the proof is ... (step 2)
+	
+	证明中下一步要做的是......
+	\item Another step in the proof is ... (step 3)
+	
+	证明的下一步是
+	\item it remains to show that (step 4)
+	
+	剩下证明
+	\item finally, we have (need) to show that (step 4)
+	
+	最后必须证明
+\end{enumerate}
+
+\subsection{证明中常用的短语句子}
+1、根据什么得到什么
+\begin{itemize}
+	\item Combining (1) and (2), we see that...
+	\item By substituting (1) into (2), we obtain
+	\item According to the definition(assumption) of ..., it follows that ...
+	\item According to (By, From) the fact that ..., it follows that ...
+	\item It follows from ... that 
+     \item Using (From) ... we can show that
+     \item by means of, thanks (owing, due) to 
+, in view of, on account of, according to  
+\end{itemize}
+
+\noindent 2、一个论断可以通过简单运算或简单推理获得
+\begin{itemize}
+	\item It is easy to see (show, prove, verify, check) that ...
+	\item It can easily seen (shown, proved, verified, checked) that ...
+    \item We deduce (infer) that ...
+	\item This (Which) implies(indicate, means) that ...
+	\item We claim (assert) that ...
+	\item namely, that is, i.e.
+	\item It follows (turns out) that ...
+	
+	As a result, consequently
+\end{itemize}
+
+\subsection{证明结束时的用语}
+\begin{itemize}
+	\item The proof is completed.
+	\item This completes the proof.
+	\item We have thus proved the theorem.
+	\item The proof of the theorem is now complete.
+\end{itemize}
+\subsection{有关不予证明的用语}
+\begin{itemize}
+	\item The proof of Theorem 2 is similar to that Theorem 1.
+	\item An argument similar to the one used in Theorem 1 shows that ...
+	\item The remainder of the argument is analogous to that in Theorem 1 and is left to the reader.
+	\item The proof of this result is quite similar to that given earlier for the Theorem 1 and so is omitted.
+	\item This theorem can be proved in the same way as shown before.
+	\item This theorem can be proved by the same method as employed in Theorem 1.
+	\item The proof of this theorem can be completed by the method analogous to that used above. 
+	\item It is simple (easy, straightforward) to show that
+	\item It is trivial to show (see) that
+\end{itemize}
+\begin{table}[h]
+\centering
+\caption{一些常用短语}
+\begin{tabular}{rlrl}
+	\hline 
+	不是一般性&without loss of generality  &是符号更简单  &for ease of notations  \\ 
+	
+	当且仅当& if and only if, iff  &  为表达简单起见&for simplicity of presentation  \\ 
+	
+	事实上&as a matter of fact, in fact  & 换言之，即 & in other words, that is  \\  
+	\hline 
+\end{tabular} 
+\end{table}
+
+\section{数值实验}
+\begin{itemize}
+	\item As an example, consider...
+	
+	作为一个例子，考虑......
+	\item 
+\end{itemize}
+\noindent 报告计算结果中的常见用法
+\begin{itemize}
+	\item Results of these calculations are given(或shown, presented, plotted) in Figs.1 and 2.
+	\item Computational results are shown in Fig. 1, illustrating ...
+	\item Fig. 1 shows ...
+	\item ... as shown(illustrate) in Fig. 1.
+	\item It is observed (seen) from Fig. 1 that
+	\item As indicated in Table 1
+\end{itemize}
+
+\textbf{注意：}图有时用Figure，有时用Fig.。这两种用法都可以，但是在同一篇文章里必须保持一致。也就是说，如用Figure，则正篇文章就不再混用Fig.这一缩写。如同时有两张图，建议写成Figs. 1 and 2而不是Fig. 1 and Fig. 2。
+
+\section{结论(Conclusions或Concluding Remarks)}
+结论节应该包含以下的信息：
+\begin{itemize}
+	\item 非常简短地叙述文章的主要贡献。并且不要重复引言或摘要里面的字词，尽量用一些意思相同的代替词。这时可以重申你结果的重要性。
+	\item 指出某些原因(比如篇幅)，文章没有考虑到的其他方面或更广泛的问题，并说明本文的论证方法是否可以推广到这些情形。
+	\item 展望下一步，后续研究可以做什么？如果合适，讨论一些和本研究相关的猜想。
+\end{itemize}
+
+
+\section{致谢(Acknowledgments)}
+一些示例
+\begin{itemize}
+	\item The financial support of the ... is gratefully acknowledged.
+	\item The author gratefully acknowledges the support of the ...
+	\item This work was support by the National Natural Science Foundation of China (Grant No. 12345678).
+	\item We are grateful to the two anonymous referees for useful comments and suggestions.
+\end{itemize}
+
+\section{文献}
+\begin{itemize}
+	\item 杂志名往往只写出其公认的简写形式(参见\url{https://mathscinet.ams.org/msnhtml/serials.pdf})。
+	\item 碰到作者多于一人的情形时，一般遵循以下惯例：两个作者时名字一起写出，如see Tan and Xu [1]。如有两人以上，第一次引用时列出所有作者名，以后的每次引用只列出第一作者的名字再加上et al.，如第一次引用时可写see Tan, Xu and Li，然后每次引用写Tan et al.。
+	\item 当正文中同时引用几篇文献时，应以编号的递增次序排列，而不是按文献的出版年份为序。
+\end{itemize}
+	
+\section{怎么修改文章}
+\begin{enumerate}
+	\item 删减字句：删去一切无用字句，对可有可无之处忍痛割爱，甚至做到弃之如敝履。将长句变短句、被动变主动。
+	\item 突出重点：分节合理，一定要有结论小节，文章不要有太多的结论。
+	\item 美容结构：检查公式编号是否必要，参考文献格式是否统一。
+	\item 善用图表：图表不宜过多，图表的说明要符合标准，对列出的图表加以讨论和说明，选出的图一定要在颜色、曲线、标示等方面够专业；很多劣质的图会让审稿人或读者反感。
+\end{enumerate}
+
+
+\section{检查清单}
+\begin{enumerate}
+	\item 是否用手工或电脑软件检查过文章中英文单词有无拼写错误？是否存在语法问题？
+	\item 文章题目是否准确、简洁？表达是否恰如其分。
+	\item 摘要是否概括得当、简明扼要？有无像In this paper诸如此类的多余字句或短语？
+	\item 引言是否叙述严格、客观全面？历史线索是否清晰可见？提出的问题是否合情合理？结果描述是否符合事实？
+	\item 各节标题是否描述贴切？所含内容是否彼此平衡？各节衔接是否平稳光滑？
+	\item 定理证明是否步步为营？定理条件是否互相独立？定理叙述是否符合逻辑？定理是否太多而失去重心？
+	\item 数学公式展示是否充满美感？有否数学表达式不应放在句中而应单独占一行？每一个方程式的标号是否必须？是否多余？是否遗漏？
+	\item 数学符号是否上下一致？他们能被简化而不会误导吗？
+	\item 结论节是否与摘要重复？是否既总结过去，又展望将来？
+	\item 参考文献是否数量适中？是否容易获得？是否与文章内容密切相关？格式是否一致？是否满足投稿杂志要求？有无文中没有引用但出现在参考文献中的论文或专著？
+	\item 是否感谢与论文撰作相关的研究基金的支持？是否感谢对文章有建设性意见的学界同人？是否感谢负责而有实质性建议的匿名审稿人？
+	\item 图表是否与理论分析相得益彰？数据是否真实可靠？图示是否引人注目？计算结果是否支持未来发展？
+	\item 是否有字词、短语或句子可被删去而并不改变原意？
+	\item 是否有繁琐不堪的特长句子？有无句子重复使用？
+	\item 是否用字母少的短语代替同样意思的多字母长词？
+	\item 能否将一句话从被动语态转成主动语态？
+	\item 文章中的句子和段落之间的次序是否最佳？是否需要调整？
+	\item 被引用的句子、参考文献及数值结果是否正确复制？
+	\item 引用别人文章的字句是否给对方足够的承认？被引用的原始文献是否已列于文章最后？
+	\item 有没有遗漏交代其他作者的工作？是否给予了他们足够的承认？
+\end{enumerate}
+
+
+\section{投稿}
+\begin{enumerate}
+	\item 仔细阅读杂志的作者须知，将文章格式按照所投杂志准备；
+	\item 写投稿信 (cover letter)；
+	\item 投稿！
+\end{enumerate}
+
+\subsection{投稿信模板}
+\textbf{Example 1}
+
+\noindent
+\fbox{%
+	\parbox{\textwidth}{%
+Dear Editor,
+
+We are submitting our latest manuscript ``Paper title" for possible publication Juornal name. Thank you for handling our manuscript.
+
+Sincerely,
+
+Bing Tan
+}%
+}
+
+
+\noindent\textbf{Example 2}
+
+\noindent
+\fbox{%
+	\parbox{\textwidth}{%
+Dear Editors:
+
+Please find the attached our manuscript entitled `` Paper title". The manuscript has not been submitted to any other journals for publication.
+
+We hope that you find our manuscript suitable for publication in the Journal name. As potential referees, we could suggest author name and author name; both are experts in the field, whose works are cited in the paper.
+
+If you need any more information please contact with me as the corresponding author.
+
+Best Regards,
+
+Bing Tan
+}%
+}
+
+\subsection{回复审稿意见}
+\noindent\textbf{Example 1}
+
+\noindent
+\fbox{%
+	\parbox{\textwidth}{%
+Dear Referee,
+
+We thank you for your positive report. We have followed your suggestions and modified our manuscript as follows.
+
+Thanks again for your kind remarks on our manuscript.
+
+Sincerely,
+
+Bing Tan		
+}}
+
+		
+\noindent\textbf{Example 2}
+
+\noindent
+\fbox{%
+	\parbox{\textwidth}{%
+Dear Reviewer,
+
+Thank you very much for your encouragement and valuable suggestions. The manuscript has been fully revised by following your suggestions. Below is our reply to your specific comments: 
+\begin{enumerate}
+	\item The formula is corrected.
+	\item The typos are corrected.
+	\item The typo in the reference is  corrected.
+\end{enumerate}		
+Thank you again for your helpful suggestions.
+
+Sincerely,
+
+Bing Tan			
+}}		
+		
+		
+\section{\LaTeX 注意事项}
+\begin{itemize}
+\item 单引号: 用 \verb|`| 和 \verb|'| 表示两个方向的单引号 ` 和 '。
+\item 双引号: 用 \verb|``| 和 \verb|"| (两个单引号) 分别表示 `` 和 ''。
+\item 一根横线\verb|-|表示连接，两根横线\verb|--|表示范围，例如，Shan-shan Xu， 1--100。
+\item 数学公式引用用\verb|\eqref{}|，这会给引用自动加上圆括号。
+\item 当一个英文单词在数学环境中作为公式时，要用斜体\verb|\textit{}|。
+\item 公式加粗用\verb|\mathbf{}|，文字加粗用\verb|\textbf{}|。
+\item 条件概率用\verb|$ P(x \mid y) $|比单独竖线下 更美观。
+\item 数学公式中的$ l $尽量用$ \ell $ (\verb|\ell|)。避免跟其他数字和字母混淆。
+\item  使用\verb|Table~\ref{}|避免Table和1之间换了个行。类似的有\verb|Figure~\ref{}|，\verb|cite~\ref{}|，\verb|\eqref~\ref{}|等。
+\item 微分$ \mathrm{d}x $中的$ \mathrm{d} $要用直立体\verb|\mathrm{d}|。
+\item 不要粗暴的使用\verb|\left|和\verb|\right|，试下\verb|\big|，\verb|\Big|，\verb|\bigg|，\verb|\Bigg|。例如，\verb|\left[\sum_{j} x\right]^{2}|对比\verb|\bigg[\sum_{j} x\bigg]^{2}|，如下所示
+\begin{equation*}
+\left[\sum_{j} x\right]^{2},\quad
+\bigg[\sum_{j}x\bigg]^{2}.
+\end{equation*}
+\item 引用的时候要加波浪线``\verb|~|"，避免断行。例如see reference \verb|Tan~\cite{tan}|，\verb|Fig.~\ref{fig1}|，\verb|Table~\ref{table1}|。
+\item 在西欧文字中有一些重音字符，我们可以用下列命令来输入 (以 o 为例)：
+\begin{table}[h]
+	\centering
+	\caption{一些常见符号}
+	\begin{tabular}{|rl|rl|rl|rl|rl|rl|rl|}
+		\hline 
+		\verb|\`{o}| &\`{o}   &\verb|\'{o}|  &\'{o} & \verb|\^{o}| &\^{o} & \verb|\"{o}|& \"{o} & \verb|\c{c}|& \c{c} & \verb|\u{o}|& \u{o} & \verb|\v{s}| & \v{s}\\ 
+ 
+		\hline 
+	\end{tabular} 
+\end{table}
+\item 表格中行距默认等于 \verb|\baselineskip|．通过修改 \verb|\arraystretch| 因子的值，我们可以单独调整表格的行距．下面例子将表格行距修改为原来的 1.5 倍。
+
+\verb|\renewcommand\arraystretch{1.5}|
+\item 如果你要插入的是大图片，一般不会和正文混排，而是需要独立居中显示．这可以通过把插入的图片放在 center 环境中来实现．例如
+\begin{verbatim}
+\begin{center}
+\includegraphics[scale=0.2]{example-image}
+\end{center}
+\end{verbatim}
+\item $ \lim _ {n\to 0}x_n = 0 $，$\displaystyle \lim _ {n\to 0}x _ n = 0$，第二个命令\verb|$\displaystyle \lim_{n\to 0}x_{n} = 0$|
+\end{itemize}		
+		
+\section{需要注意的一些细节}	
+\begin{itemize}
+	\item If you use `if', then use `then'.	
+	\item Don't begin sentences with a symbol.
+	\item Use Synonyms.
+	
+	Some synonyms for deduction are:
+	
+	`hence, so, it follows, it follows that, as a result, consequently, therefore, thus,
+	accordingly, then.'
+	
+	Synonyms for explanations are:
+	
+	`as, because, since, due to, in view of, owing to.'
+	\item Insert logical words.
+	
+	Hypotheticals: `Assume that...', `Suppose that...', `Let...', etc.
+	\item  Use a specific font to denote objects of a particular type. For example, in linear algebra, you might denote \textit{vectors} by bold-faced lower-case letters ($\mathbf{u,v,w}$), \textit{matrices} by bold-faced upper-case letters ($ \mathbf{A,B,C} $), \textit{scalars} by lower-case roman letters ($ r,s,t $),  and vector (sub)spaces by upper-case `blackboard' font ($ \mathbb{U,V,W} $).
+	\item 
+\end{itemize}
+
+		
+\begin{thebibliography}{100}
+\bibitem{tang2013}汤涛，丁玖。数学之英文写作，高等教育出版社，2013。	
+\end{thebibliography}
+\end{document}
